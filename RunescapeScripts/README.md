@@ -2,3 +2,4 @@ This is a collection of runescape scripts I wrote. They are probably deprecated 
 This is the only video I had of this project
 <img src="https://s3.ezgif.com/tmp/ezgif-3-64733ab0f1.gif](https://s3.ezgif.com/tmp/ezgif-3-64733ab0f1.gif"
 <img src="https://s3.ezgif.com/tmp/ezgif-3-64733ab0f1.gif" alt="RS BOT" width="400"/>
+![RS BOT](https://s3.ezgif.com/tmp/ezgif-3-64733ab0f1.gif)
