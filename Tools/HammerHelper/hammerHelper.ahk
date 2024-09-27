@@ -19,38 +19,38 @@ xPos := 10
 yPos := 70
 
 Gui, Add, Button, gIncrement w%buttonWidth% h%buttonHeight% x%xPos% y%yPos%, Increment
-xPos += buttonWidth + 10 ; Move x position for next button
+xPos += buttonWidth + 10
 Gui, Add, Button, gDecrement w%buttonWidth% h%buttonHeight% x%xPos% y%yPos%, Decrement
 
-yPos += buttonHeight + 10 ; Move to the next row
-xPos := 10 ; Reset x position for new row
+yPos += buttonHeight + 10
+xPos := 10
 
 Gui, Add, Button, gReset w%buttonWidth% h%buttonHeight% x%xPos% y%yPos%, Reset
-xPos += buttonWidth + 10 ; Move x position for next button
+xPos += buttonWidth + 10 
 Gui, Add, Button, gToggleSign w%buttonWidth% h%buttonHeight% x%xPos% y%yPos%, Toggle Sign
 
 yPos += buttonHeight + 10 
 xPos := 10 
 
 Gui, Add, Button, gRotateX w%buttonWidth% h%buttonHeight% x%xPos% y%yPos%, Rotate X
-xPos += buttonWidth + 10 ; Move x position for next button
+xPos += buttonWidth + 10 
 Gui, Add, Button, gRotateY w%buttonWidth% h%buttonHeight% x%xPos% y%yPos%, Rotate Y
 
-yPos += buttonHeight + 10 ; Move to the next row
-xPos := 10 ; Reset x position for new row
+yPos += buttonHeight + 10 
+xPos := 10 
 
 Gui, Add, Button, gRotateZ w%buttonWidth% h%buttonHeight% x%xPos% y%yPos%, Rotate Z
 
 Gui, Add, Text, , Sleep Duration (ms): 
 Gui, Add, Slider, vSleepDurationRange Range1-2000 gUpdateSleep h20, 100 
-Gui, Add, Text, vSleepValueText w100 h30, 100 ; Display current sleep value
+Gui, Add, Text, vSleepValueText w100 h30, 100
 
-Gui, Add, Text, , Accumulated Angles: ; Label for accumulated angles
-Gui, Add, Text, vAccumulatedXText w200 h30, X: 0 ; Display accumulated X angle
-Gui, Add, Text, vAccumulatedYText w200 h30, Y: 0 ; Display accumulated Y angle
-Gui, Add, Text, vAccumulatedZText w200 h30, Z: 0 ; Display accumulated Z angle
+Gui, Add, Text, , Accumulated Angles:
+Gui, Add, Text, vAccumulatedXText w200 h30, X: 0
+Gui, Add, Text, vAccumulatedYText w200 h30, Y: 0
+Gui, Add, Text, vAccumulatedZText w200 h30, Z: 0
 
-Gui, Add, Button, gResetAccumulated w%buttonWidth% h%buttonHeight%, Reset Accumulated ; Add button for Reset Accumulated
+Gui, Add, Button, gResetAccumulated w%buttonWidth% h%buttonHeight%, Reset Accumulated
 
 Gui, Show, w200 h500, Rotation Tool 
 Gui +LastFound
@@ -59,20 +59,20 @@ GuiControl, Focus, RotationValue
 return
 
 UpdateSleep:
-    GuiControlGet, SleepDurationRange ; Get the current value of the sleep duration slider
-    GuiControl,, SleepValueText, %SleepDurationRange% ; Update the displayed sleep value
+    GuiControlGet, SleepDurationRange
+    GuiControl,, SleepValueText, %SleepDurationRange% 
 return
 
 Increment:
     GuiControlGet, RotationValue
-    RotationValue++ ; Increment by 1
+    RotationValue++ 
     GuiControl,, RotationValue, %RotationValue%
     GuiControl,, CurrentValueText, Current Rotation: %RotationValue% 
 return
 
 Decrement:
     GuiControlGet, RotationValue
-    RotationValue-- ; Decrement by 1
+    RotationValue--
     GuiControl,, RotationValue, %RotationValue% 
     GuiControl,, CurrentValueText, Current Rotation: %RotationValue% 
 return
@@ -125,10 +125,9 @@ RotateAction(tabCount) {
         }
 
         SendInput %RotationValue%
-        SendInput {Enter}   ; Press Enter
+        SendInput {Enter}
         Sleep 100
         
-        ; Update accumulated angles
         if (tabCount == 1) {
             accumulatedX += RotationValue
         } else if (tabCount == 2) {
@@ -152,9 +151,9 @@ ResetAccumulated:
     accumulatedX := 0
     accumulatedY := 0
     accumulatedZ := 0
-    GuiControl,, AccumulatedXText, X: 0 ; Reset accumulated X angle
-    GuiControl,, AccumulatedYText, Y: 0 ; Reset accumulated Y angle
-    GuiControl,, AccumulatedZText, Z: 0 ; Reset accumulated Z angle
+    GuiControl,, AccumulatedXText, X: 0
+    GuiControl,, AccumulatedYText, Y: 0
+    GuiControl,, AccumulatedZText, Z: 0
 return
 
 GuiClose:
